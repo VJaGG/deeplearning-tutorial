@@ -1,5 +1,6 @@
 import os
 import cv2
+from pandas.io.pytables import WORMTable
 import torch
 import numpy as np
 import pandas as pd
@@ -18,6 +19,15 @@ null_augment = A.Compose([
     A.Resize(width, height)
 ])
 
+train_augment = A.Compose([
+    A.Resize(width, height),
+    A.HorizontalFlip(p=0.5),
+    A.RandomRotate90(p=0.5),
+    # A.RandomContrast(p=0.3),
+    A.VerticalFlip(p=0.5),
+    A.Blur(blur_limit=3),
+    A.Cutout(max_h_size=50, max_w_size=50)
+    ])
 
 class Food101(data.Dataset):
     def __init__(self, df, augment=null_augment):
@@ -94,7 +104,15 @@ def make_fold(mode='trian-0'):
         return df_train, df_valid
 
 def run_check_augment():
-    pass
+    df_train, df_valid = make_fold('train-0')
+    train_data = Food101(df_train, train_augment)
+    print(train_data)
+    for i in range(20):
+        i = np.random.choice(len(train_data))
+        r = train_data[i]
+        image = r['image']
+        image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
+        cv2.imwrite(f'./augmented/{i}.png', image)
 
 def run_check_dataset():
     df_train, df_valid = make_fold('train-0')
@@ -130,5 +148,5 @@ def run_check_dataset():
 
 if __name__ == "__main__":
     # run_get_fold()
-    run_check_dataset()
-    # run_check_augment()
+    # run_check_dataset()
+    run_check_augment()
