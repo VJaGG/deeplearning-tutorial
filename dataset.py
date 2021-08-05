@@ -1,13 +1,10 @@
-import os
-import cv2
-from pandas.io.pytables import WORMTable
-import torch
-import numpy as np
-import pandas as pd
-import albumentations as A
-import torch.utils.data as data
-from torch.utils.data.sampler import RandomSampler
-from sklearn.model_selection import StratifiedKFold
+'''
+@File    : model.py
+@Modify Time     @Author    @Version    @Desciption
+------------     -------    --------    -----------
+2021/8/4 15:13   WuZhiqiang     1.0        None 
+'''
+from common import *
 
 
 root = "/data/bitt/wzq/wzq/food101/data"
