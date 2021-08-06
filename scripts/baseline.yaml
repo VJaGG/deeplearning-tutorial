@@ -1,0 +1,9 @@
+initial_checkpoint: null
+
+weight_decay: 0.00001
+start_lr: 0.0003
+is_mixed_precision: true
+
+fold: 0
+batch_size: 4
+out_dir: '/home/data_normal/abiz/wuzhiqiang/wzq/food101/result/0806/'

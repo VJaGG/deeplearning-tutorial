@@ -1,5 +1,3 @@
 .vscode
 .ipynb_checkpoints
 progress.py
-data/image/*
-*.jpg

@@ -1,0 +1,65 @@
+
+--- [START 2021-08-06_13-38-56] ----------------------------------------------------------------
+
+	@common.py:  
+	pytorch
+		seed = 1628228336
+		torch.__version__                  = 1.7.0+cu101
+		torch.version.cuda                 = 10.1
+		torch.backends.cudnn.version()     = 7603
+		torch.cuda.device_count()          = 8
+		os['CUDA_VISIBLE_DEVICES']         = None
+		torch.cuda.get_device_properties() = (name='GeForce GTX 1080 Ti', major=6, minor=1, total_memory=11178MB, multi_processor_count=28)
+		torch.cuda.device_count()          = 8
+
+
+	__file__ = /home/data_normal/abiz/wuzhiqiang/wzq/food101/train.py
+	out_dir  = /home/data_normal/abiz/wuzhiqiang/wzq/food101/result/0806/fold-0
+
+root = /home/data_normal/abiz/wuzhiqiang/wzq/food101/data
+train_dataset : 
+	len    = 60600
+	label  = 101
+
+valid_dataset : 
+	len    = 15150
+	label  = 101
+
+
+** net setting **
+net=<class '__main__.AmpNet'>
+	initial_checkpoint = None
+
+optimizer
+  Adam (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    eps: 1e-08
+    lr: 0.0003
+    weight_decay: 1e-05
+)
+
+** start training here **
+   batch_size = 4
+   experiment = ['food101', 'train.py']
+                      |----- VALID -----|----- TRAIN/BATCH -----
+rate      iter  epoch | loss    acc     |  loss0  | time        
+----------------------------------------------------------------
+0.00000   0.00* 0.00  |  4.621   0.007  |  0.000  |  0 hr 08 min
+0.00030   0.05  0.03  |  4.184   0.189  |  4.393  |  0 hr 17 min
+0.00030   0.10  0.07  |  3.520   0.237  |  3.844  |  0 hr 26 min
+0.00030   0.15  0.10  |  3.096   0.282  |  3.477  |  0 hr 36 min
+0.00030   0.20* 0.13  |  2.828   0.326  |  3.287  |  0 hr 45 min
+0.00030   0.25  0.17  |  2.703   0.348  |  3.313  |  0 hr 55 min
+0.00030   0.30  0.20  |  2.508   0.393  |  3.152  |  1 hr 04 min
+0.00030   0.35  0.23  |  2.408   0.419  |  3.103  |  1 hr 13 min
+0.00030   0.40* 0.26  |  2.369   0.413  |  2.934  |  1 hr 23 min
+0.00030   0.45  0.30  |  2.301   0.432  |  2.695  |  1 hr 32 min
+0.00030   0.50  0.33  |  2.215   0.444  |  2.816  |  1 hr 42 min
+0.00030   0.55  0.36  |  2.184   0.456  |  2.856  |  1 hr 51 min
+0.00030   0.60* 0.40  |  2.180   0.456  |  2.803  |  2 hr 00 min
+0.00030   0.65  0.43  |  2.133   0.467  |  2.860  |  2 hr 10 min
+0.00030   0.70  0.46  |  2.100   0.468  |  2.865  |  2 hr 19 min
+0.00030   0.75  0.50  |  2.086   0.475  |  2.657  |  2 hr 29 min
+0.00030   0.80* 0.53  |  2.043   0.483  |  2.766  |  2 hr 38 min

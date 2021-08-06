@@ -5,6 +5,9 @@
 2021/8/5 15:28  WuZhiqiang     1.0        None 
 '''
 from lib import *
+from lib.utility.file import *
+from lib.utility.layer_np import *
+from lib.utility.rate import *
 
 
 IDENTIFIER = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
